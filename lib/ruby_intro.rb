@@ -3,11 +3,24 @@
 # Part 1
 
 def sum arr
-  # YOUR CODE HERE
+  sum = 0
+  arr.each {
+    |x|
+    sum += x
+  }
+  return sum
 end
 
 def max_2_sum arr
-  # YOUR CODE HERE
+  sum = 0
+  length = arr.length
+  if length >1
+    arr = arr.sort.reverse
+    sum = arr[0] + arr[1]
+  elsif length == 1
+    sum = arr[0]
+  end
+  return sum
 end
 
 def sum_to_n? arr, n
@@ -33,3 +46,6 @@ end
 class BookInStock
 # YOUR CODE HERE
 end
+
+array = [1000, 23]
+print max_2_sum array
