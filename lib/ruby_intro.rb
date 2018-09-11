@@ -24,17 +24,32 @@ def max_2_sum arr
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+  for x in 0...arr.length do
+    for y in 0...arr.length do
+      if x != y
+        if (arr[x] + arr[y]) == n
+          return true
+        end
+      end
+    end
+  end
+  return false
 end
 
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
+  return "Hello, " + name
 end
 
 def starts_with_consonant? s
-  # YOUR CODE HERE
+  consonants = ['A', 'E', 'i', 'o', 'U', 'a', 'e', 'i', 'o', 'u']
+  isletter = s[0] =~ /[A-Za-z]/
+  if !isletter or consonants.include? s[0]
+    return false
+  else
+    return true
+  end
 end
 
 def binary_multiple_of_4? s
@@ -47,5 +62,4 @@ class BookInStock
 # YOUR CODE HERE
 end
 
-array = [1000, 23]
-print max_2_sum array
+print starts_with_consonant?('000')
