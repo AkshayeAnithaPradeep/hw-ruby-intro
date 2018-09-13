@@ -53,13 +53,39 @@ def starts_with_consonant? s
 end
 
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+  sum = 0
+  s = s.split('')
+  s.each do |x|
+    if ['0', '1'].include? x
+      val = x.to_i
+      sum = sum*2 + val
+    else
+      return false
+    end
+  end
+  if sum % 4 == 0 && s.length != 0
+    return true
+  else
+    return false
+  end
 end
 
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+  attr_accessor :isbn, :price
+  
+  def initialize(isbn, price)
+    unless(isbn != '' && price > 0)
+      raise ArgumentError.new("Invalid input")
+    else
+      @isbn = isbn
+      @price = price
+    end
+  end
+  
+  def price_as_string()
+    price = '%.2f' % @price
+    return "$#{price}"
+  end
 end
-
-print starts_with_consonant?('000')
